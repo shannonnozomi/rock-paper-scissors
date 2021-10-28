@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-    <script src="index.js"></script> 
-    <script src="https://kit.fontawesome.com/db7bccb3b9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header> 
-        <h1>Rock Paper Scissors</h1>
+    <script src="index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/db7bccb3b9.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors</h1>
     </header>
     <h2>Round &nbsp;<span id="number">0</span></h2>
     <div class="playArea">
-    <div class="player">
-    <div class="selected" id="playerChoice"></div>
-    <div class = "choices">
-        <button class="rock" onclick="rockFunction(); incrementValue();"><i class="far fa-hand-rock fa-3x"></i></button>   
-        <button class="paper" onclick="paperFunction(); incrementValue();"><i class="far fa-hand-paper fa-3x"></i></button>    
-        <button class="scissors" onclick="scissorsFunction(); incrementValue();"><i class="far fa-hand-scissors fa-3x fa-rotate-90"></i></button>
+      <div class="player">
+        <div class="selected" id="playerChoice"></div>
+        <div class="choices">
+          <button class="rock" onclick="rockFunction(); incrementValue();">
+            <i class="far fa-hand-rock fa-3x"></i>
+          </button>
+          <button class="paper" onclick="paperFunction(); incrementValue();">
+            <i class="far fa-hand-paper fa-3x"></i>
+          </button>
+          <button
+            class="scissors"
+            onclick="scissorsFunction(); incrementValue();"
+          >
+            <i class="far fa-hand-scissors fa-3x fa-rotate-90"></i>
+          </button>
+        </div>
+      </div>
+      <div class="computer">
+        <div class="selected" id="computerChoice"></div>
+        <div class="choices">
+          <h3>COMPUTER</h3>
+        </div>
+      </div>
     </div>
-    </div>
-    <div class="computer">
-<div class="selected" id="computerChoice" ></div>
-    <div class="choices">
-        <h3>COMPUTER</h3> </div>
-    </div>
-    </div>
+    <div id="outcome"><p>Rock Paper Scissors</p></div>
     <div class="results">
-        <p>WIN: <span id="win">0</span></p>
-        <p>TIE: <span id="tie">0</span></p>
-        <p>LOSE: <span id="lose">0</span></p>
+      <p>WIN: <span id="win">0</span></p>
+      <p>TIE: <span id="tie">0</span></p>
+      <p>LOSE: <span id="lose">0</span></p>
     </div>
-</body>
+  </body>
 </html>

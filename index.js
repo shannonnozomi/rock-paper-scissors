@@ -1,35 +1,42 @@
+var scissorsHTML = '<i class="far fa-hand-scissors fa-10x fa-rotate-90"></i>';
+var rockHTML = '<i class="far fa-hand-rock fa-10x"></i>';
+var paperHTML = '<i class="far fa-hand-paper fa-10x"></i>';
+
 function computerResult() {
+  function updateComputer(weapon) {
+    document.getElementById("computerChoice").innerHTML = weapon;
+  }
+
   function getRandomNumber() {
     return Math.floor(Math.random() * 3);
   }
+
   var randomNumber = getRandomNumber();
   if (randomNumber === 0) {
-    document.getElementById("computerChoice").innerHTML =
-      '<i class="far fa-hand-rock fa-10x"></i>';
+    updateComputer(rockHTML);
   } else if (randomNumber === 1) {
-    document.getElementById("computerChoice").innerHTML =
-      '<i class="far fa-hand-paper fa-10x"></i>';
+    updateComputer(paperHTML);
   } else if (randomNumber === 2) {
-    document.getElementById("computerChoice").innerHTML =
-      '<i class="far fa-hand-scissors fa-10x fa-rotate-90"></i>';
+    updateComputer(scissorsHTML);
   }
 }
 
+function updatePlayer(weapon) {
+  document.getElementById("playerChoice").innerHTML = weapon;
+}
+
 function rockFunction() {
-  document.getElementById("playerChoice").innerHTML =
-    '<i class="far fa-hand-rock fa-10x"></i>';
+  updatePlayer(rockHTML);
   computerResult();
   game();
 }
 function paperFunction() {
-  document.getElementById("playerChoice").innerHTML =
-    '<i class="far fa-hand-paper fa-10x"></i>';
+  updatePlayer(paperHTML);
   computerResult();
   game();
 }
 function scissorsFunction() {
-  document.getElementById("playerChoice").innerHTML =
-    '<i class="far fa-hand-scissors fa-10x fa-rotate-90"></i>';
+  updatePlayer(scissorsHTML);
   computerResult();
   game();
 }
@@ -42,73 +49,39 @@ function incrementValue() {
 }
 
 function game() {
-  if (
-    document.getElementById("computerChoice").innerHTML ===
-    document.getElementById("playerChoice").innerHTML
-  ) {
-    var value = document.getElementById("tie");
+  var computerChoice = document.getElementById("computerChoice").innerHTML;
+  var playerChoice = document.getElementById("playerChoice").innerHTML;
+
+  function updateOutcome(message) {
+    document.getElementById("outcome").innerHTML = message;
+  }
+  function updateTally(result) {
+    var value = document.getElementById(result);
     var number = value.innerHTML;
     number++;
     value.innerHTML = number;
-  } else if (
-    document.getElementById("playerChoice").innerHTML ===
-      '<i class="far fa-hand-rock fa-10x"></i>' &&
-    document.getElementById("computerChoice").innerHTML ===
-      '<i class="far fa-hand-scissors fa-10x fa-rotate-90"></i>'
-  ) {
-    var value = document.getElementById("win");
-    var number = value.innerHTML;
-    number++;
-    value.innerHTML = number;
-  } else if (
-    document.getElementById("playerChoice").innerHTML ===
-      '<i class="far fa-hand-paper fa-10x"></i>' &&
-    document.getElementById("computerChoice").innerHTML ===
-      '<i class="far fa-hand-rock fa-10x"></i>'
-  ) {
-    var value = document.getElementById("win");
-    var number = value.innerHTML;
-    number++;
-    value.innerHTML = number;
-  } else if (
-    document.getElementById("playerChoice").innerHTML ===
-      '<i class="far fa-hand-scissors fa-10x fa-rotate-90"></i>' &&
-    document.getElementById("computerChoice").innerHTML ===
-      '<i class="far fa-hand-paper fa-10x"></i>'
-  ) {
-    var value = document.getElementById("win");
-    var number = value.innerHTML;
-    number++;
-    value.innerHTML = number;
-  } else if (
-    document.getElementById("playerChoice").innerHTML ===
-      '<i class="far fa-hand-rock fa-10x"></i>' &&
-    document.getElementById("computerChoice").innerHTML ===
-      '<i class="far fa-hand-paper fa-10x"></i>'
-  ) {
+  }
+  if (computerChoice === playerChoice) {
+    updateTally("tie");
+    updateOutcome("<p>Its a Tie</p>");
+  } else if (playerChoice === rockHTML && computerChoice === scissorsHTML) {
+    updateTally("win");
+    updateOutcome("<p>You Win</p>");
+  } else if (playerChoice === paperHTML && computerChoice === rockHTML) {
+    updateTally("win");
+    updateOutcome("<p>You Win</p>");
+  } else if (playerChoice === scissorsHTML && computerChoice === paperHTML) {
+    updateTally("win");
+    updateOutcome("<p>You Win</p>");
+  } else if (playerChoice === rockHTML && computerChoice === paperHTML) {
     var value = document.getElementById("lose");
-    var number = value.innerHTML;
-    number++;
-    value.innerHTML = number;
-  } else if (
-    document.getElementById("playerChoice").innerHTML ===
-      '<i class="far fa-hand-paper fa-10x"></i>' &&
-    document.getElementById("computerChoice").innerHTML ===
-      '<i class="far fa-hand-scissors fa-10x fa-rotate-90"></i>'
-  ) {
-    var value = document.getElementById("lose");
-    var number = value.innerHTML;
-    number++;
-    value.innerHTML = number;
-  } else if (
-    document.getElementById("playerChoice").innerHTML ===
-      '<i class="far fa-hand-scissors fa-10x fa-rotate-90"></i>' &&
-    document.getElementById("computerChoice").innerHTML ===
-      '<i class="far fa-hand-rock fa-10x"></i>'
-  ) {
-    var value = document.getElementById("lose");
-    var number = value.innerHTML;
-    number++;
-    value.innerHTML = number;
+    updateTally("lose");
+    updateOutcome("<p>You Lose</p>");
+  } else if (playerChoice === paperHTML && computerChoice === scissorsHTML) {
+    updateTally("lose");
+    updateOutcome("<p>You Lose</p>");
+  } else if (playerChoice === scissorsHTML && computerChoice === rockHTML) {
+    updateTally("lose");
+    updateOutcome("<p>You Lose</p>");
   }
 }

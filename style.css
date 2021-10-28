@@ -1,44 +1,55 @@
 * {
-    font-family: 'Zen Kurenaido', sans-serif;
+  font-family: "Zen Kurenaido", sans-serif;
 }
-header, h2, h3 {
-    display: flex;
-    flex: 1;
-    justify-content: center;
+header,
+h2,
+h3 {
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 .selected {
-    border: solid 5px;
-    height: 250px;
-    width: 250px;
-    border-radius: 10px;
-    margin: 10px;
+  border: solid 5px;
+  height: 250px;
+  width: 250px;
+  border-radius: 10px;
+  margin: 10px;
 }
 .playArea {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-button{
-    background-color: white;
-    border: black solid 3px;
-    border-radius: 5px;
-    margin: 3px;
+button {
+  background-color: white;
+  border: black solid 3px;
+  border-radius: 5px;
+  margin: 3px;
 }
-button:hover{
-    cursor: pointer;
+button:hover {
+  cursor: pointer;
+}
+button:active {
+  box-shadow: 0 5px rgb(152, 150, 150);
+  transform: translateY(4px);
 }
 .choices {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
 }
 .results {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
-#playerChoice, #computerChoice{
-    justify-content: center;
-    align-items: center;
-    display: flex;
+#playerChoice,
+#computerChoice {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+#outcome {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
